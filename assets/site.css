@@ -1,0 +1,699 @@
+/*
+ * exoexplorer.io
+ *
+ * The app's own palette and type, carried over rather than reinterpreted: one hairline weight, one
+ * accent colour, amber reserved for values that were worked out rather than measured. System
+ * fonts only — the app is set in them, and loading nothing from other domains is part of what the
+ * privacy policy promises about this site.
+ */
+
+:root {
+  --space: #08090a;
+  --panel: #0c0e12;
+  --ink: #ffffff;
+  --ink-2: rgba(255, 255, 255, 0.66);
+  --ink-3: rgba(255, 255, 255, 0.5);
+  --hair: rgba(255, 255, 255, 0.12);
+  --accent: #00ccff;
+  --derived: #f0b866;
+
+  --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  --gutter: clamp(20px, 5vw, 48px);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--space);
+  color: var(--ink);
+  font: 400 17px/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: calc(1160px + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  padding: 8px 14px;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--hair);
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.skip:focus {
+  top: 12px;
+}
+
+.mono-label {
+  font: 500 12px/1.4 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ---------------------------------------------------------------- header */
+
+.page-top {
+  /* The app's nebula wash, much fainter: atmosphere behind the hero, gone by the first rule. */
+  background:
+    radial-gradient(ellipse 70% 55% at 72% 18%, rgba(67, 97, 120, 0.2), transparent 72%),
+    var(--space);
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 76px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+
+.brand img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px var(--hair);
+}
+
+.site-nav {
+  display: flex;
+  gap: clamp(18px, 3vw, 32px);
+}
+
+.site-nav a,
+.footer-nav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.site-nav a:hover,
+.footer-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------------ hero */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 48px 64px;
+  align-items: center;
+  padding-block: clamp(28px, 6vw, 72px) clamp(56px, 8vw, 112px);
+}
+
+@media (min-width: 960px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  }
+}
+
+.hero h1 {
+  margin: 20px 0 0;
+  font-weight: 300;
+  font-size: clamp(44px, 6.3vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+
+.lede {
+  margin: 28px 0 36px;
+  max-width: 31em;
+  font-size: clamp(18px, 1.55vw, 21px);
+  line-height: 1.55;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.amber {
+  color: var(--derived);
+}
+
+/* Not a button: there is nothing to press until the app is live. README says how to swap it. */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px 11px 16px;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.store {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--space);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.store:hover {
+  background: var(--accent);
+}
+
+/* ---------------------------------------------------------------- transit */
+
+.transit {
+  margin: 0;
+}
+
+.plot {
+  position: relative;
+}
+
+.plot svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* The star's glow reaches past the viewBox; let it fade out instead of stopping at an edge. */
+  overflow: visible;
+}
+
+.curve-ghost,
+.curve {
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.curve-ghost {
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 2;
+}
+
+.curve {
+  stroke: rgba(255, 255, 255, 0.72);
+  stroke-width: 2.5;
+}
+
+.pen {
+  fill: var(--accent);
+  opacity: 0;
+}
+
+/* Tick labels sit in HTML over the SVG so they stay legible at phone widths, positioned in the
+   SVG's own coordinates as percentages of its 640 × 620 viewBox. */
+.tick {
+  position: absolute;
+  font: 500 11px/1 var(--mono);
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+.tick-axis {
+  left: 6.25%;
+  top: 83.87%;
+  transform: translateY(-170%);
+  text-transform: uppercase;
+}
+
+.tick-full {
+  right: 6.25%;
+  top: 83.87%;
+  transform: translateY(-170%);
+}
+
+.tick-floor {
+  left: 50%;
+  top: 92.9%;
+  transform: translate(-50%, 9px);
+}
+
+.transit figcaption {
+  margin: 18px 0 0;
+  max-width: 30em;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+/* --------------------------------------------------------------- sections */
+
+.section {
+  position: relative;
+  padding-block: clamp(64px, 9vw, 120px);
+}
+
+/* The rule spans the content, not the gutters, so it lines up with the feature list's rules. */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--gutter);
+  right: var(--gutter);
+  border-top: 1px solid var(--hair);
+}
+
+.section h2 {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(32px, 3.8vw, 50px);
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+
+.section-head {
+  max-width: 40em;
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+
+.section-head p {
+  margin: 18px 0 0;
+  font-size: 18px;
+  color: var(--ink-2);
+}
+
+/* ------------------------------------------------------------ screenshots */
+
+.shots {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 70%;
+  gap: clamp(16px, 2.6vw, 36px);
+  margin: 0;
+  padding: 0 0 8px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.shots::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 760px) {
+  .shots {
+    grid-auto-columns: minmax(0, 1fr);
+    overflow: visible;
+  }
+}
+
+.shots figure {
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.shots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* An iPhone screen's corner, as a share of its width and height. */
+  border-radius: 12.5% / 5.75%;
+  background: #000;
+  box-shadow: 0 0 0 1px var(--hair), 0 40px 80px -40px rgba(0, 0, 0, 0.9);
+}
+
+.shots figcaption {
+  margin-top: 16px;
+}
+
+/* --------------------------------------------------------------- features */
+
+.features {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px 56px;
+  padding-block: 30px;
+  border-top: 1px solid var(--hair);
+}
+
+.feature:last-child {
+  border-bottom: 1px solid var(--hair);
+}
+
+@media (min-width: 860px) {
+  .feature {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  }
+}
+
+.feature h3 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+}
+
+.feature p {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+.feature strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.feature .where {
+  margin-top: 14px;
+  font: 400 13px/1.5 var(--mono);
+  color: var(--ink-3);
+}
+
+.where b {
+  margin-right: 0.8em;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* The app's own "derived" badge, verbatim. */
+.badge-derived {
+  display: inline-block;
+  padding: 1px 10px;
+  border: 1px solid rgba(240, 184, 102, 0.45);
+  border-radius: 999px;
+  background: rgba(240, 184, 102, 0.08);
+  color: var(--derived);
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- privacy */
+
+/* minmax(0, 1fr), not the default auto track: the request's long URL line would otherwise widen
+   the column past the screen instead of scrolling inside its own box. */
+.privacy-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px 72px;
+}
+
+@media (min-width: 900px) {
+  .privacy-band {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+  }
+}
+
+.privacy-band p {
+  margin: 20px 0 0;
+  font-size: 18px;
+  color: var(--ink-2);
+  max-width: 30em;
+}
+
+.request {
+  margin: 0;
+}
+
+.request pre {
+  margin: 0;
+  padding: 22px 24px;
+  overflow-x: auto;
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  background: var(--panel);
+  font: 400 13px/1.75 var(--mono);
+  color: var(--ink-2);
+}
+
+.request .verb {
+  color: var(--accent);
+}
+
+.request figcaption {
+  margin-top: 14px;
+  font-size: 15px;
+  color: var(--ink-3);
+}
+
+.more {
+  font-size: 17px;
+}
+
+/* ---------------------------------------------------------------- details */
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 32px 48px;
+  margin: 0;
+}
+
+.facts dt {
+  margin-bottom: 8px;
+}
+
+.facts dd {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 16px;
+}
+
+.ack {
+  margin: clamp(40px, 5vw, 56px) 0 0;
+  max-width: 48em;
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+/* ----------------------------------------------------------------- footer */
+
+.site-footer {
+  border-top: 1px solid var(--hair);
+  padding-block: 40px 56px;
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px 40px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+}
+
+.fine {
+  margin: 24px 0 0;
+  max-width: 62em;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-3);
+}
+
+/* ----------------------------------------------------- policies & support */
+
+.doc {
+  max-width: 760px;
+  padding-block: clamp(36px, 7vw, 88px) clamp(72px, 10vw, 128px);
+}
+
+.doc h1 {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(40px, 5.6vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.032em;
+}
+
+.doc .meta {
+  margin: 18px 0 0;
+}
+
+.doc .intro {
+  margin: 24px 0 0;
+  font-size: 19px;
+  color: var(--ink-2);
+}
+
+.doc h2 {
+  margin: 56px 0 12px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.doc p,
+.doc li {
+  color: var(--ink-2);
+}
+
+.doc ul {
+  padding-left: 1.2em;
+}
+
+.doc li + li {
+  margin-top: 8px;
+}
+
+.doc strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.doc .panel {
+  margin-top: 40px;
+  padding: 24px 28px;
+  border: 1px solid var(--hair);
+  border-radius: 16px;
+  background: var(--panel);
+}
+
+.doc .panel h2 {
+  margin: 0 0 4px;
+  font: 500 12px/1.4 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.doc .panel ul {
+  margin: 12px 0 0;
+}
+
+.doc .panel p {
+  margin: 8px 0 0;
+}
+
+.email {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: clamp(22px, 3.2vw, 30px);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.email:hover {
+  color: var(--accent);
+}
+
+.faq {
+  margin-top: 16px;
+}
+
+.faq details {
+  border-top: 1px solid var(--hair);
+}
+
+.faq details:last-of-type {
+  border-bottom: 1px solid var(--hair);
+}
+
+.faq summary {
+  position: relative;
+  padding: 20px 40px 20px 0;
+  list-style: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--ink-3);
+}
+
+.faq details[open] summary::after {
+  content: "\2212";
+}
+
+.faq details p {
+  margin: 0 0 22px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

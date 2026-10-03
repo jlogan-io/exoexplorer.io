@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ExoExplorer — every confirmed exoplanet, in 3D</title>
+  <meta name="description" content="ExoExplorer draws every planetary system in NASA’s Exoplanet Archive in 3D on iPhone and iPad, on real orbits, and marks every value it had to work out for itself.">
+  <link rel="canonical" href="https://exoexplorer.io/">
+  <meta name="theme-color" content="#08090a">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-itunes-app" content="app-id=6804550234">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ExoExplorer">
+  <meta property="og:title" content="ExoExplorer — every confirmed exoplanet, in 3D">
+  <meta property="og:description" content="Every planetary system in NASA’s Exoplanet Archive, drawn in 3D on real orbits. For iPhone and iPad.">
+  <meta property="og:url" content="https://exoexplorer.io/">
+  <meta property="og:image" content="https://exoexplorer.io/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/transit.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="page-top">
+    <header class="wrap site-header">
+      <a class="brand" href="/" aria-label="ExoExplorer home">
+        <img src="/assets/img/icon-64.png" width="32" height="32" alt="">
+        <span>ExoExplorer</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="wrap hero">
+        <div>
+          <p class="mono-label">iPhone &amp; iPad · NASA Exoplanet Archive</p>
+          <h1>Every confirmed exoplanet, on&nbsp;its real&nbsp;orbit.</h1>
+          <p class="lede">ExoExplorer draws the 4,700-plus planetary systems in NASA’s Exoplanet Archive in 3D, from the archive’s own measurements, and marks <span class="amber">in amber</span> every value it had to work out for itself.</p>
+          <!-- When the app is live, replace this span with:
+               <a class="store" href="https://apps.apple.com/app/id6804550234">Download on the App Store</a> -->
+          <span class="status">Coming soon to the App Store</span>
+        </div>
+
+        <figure class="transit">
+          <div class="plot">
+            <svg viewBox="0 0 640 620" role="img" aria-labelledby="transit-title" data-transit>
+              <title id="transit-title">A dark planet crossing in front of an orange star. The line beneath, tracing the star’s brightness, dips while the planet is in front and recovers once it has passed.</title>
+              <defs>
+                <radialGradient id="glow">
+                  <stop offset="0.55" stop-color="#f0963c" stop-opacity="0.34"/>
+                  <stop offset="0.8" stop-color="#f0963c" stop-opacity="0.09"/>
+                  <stop offset="1" stop-color="#f0963c" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="photosphere" cx="0.5" cy="0.5" r="0.5" fx="0.38" fy="0.34">
+                  <stop offset="0" stop-color="#ffe4bc"/>
+                  <stop offset="0.5" stop-color="#fcb46e"/>
+                  <stop offset="0.88" stop-color="#ef9246"/>
+                  <stop offset="1" stop-color="#e5823b"/>
+                </radialGradient>
+                <clipPath id="disc"><circle cx="320" cy="250" r="190"/></clipPath>
+                <clipPath id="drawn"><rect data-drawn x="0" y="0" width="640" height="620"/></clipPath>
+              </defs>
+              <circle cx="320" cy="250" r="320" fill="url(#glow)"/>
+              <circle cx="320" cy="250" r="190" fill="url(#photosphere)"/>
+              <circle data-planet cx="270" cy="164.5" r="28.5" fill="#08090a" clip-path="url(#disc)"/>
+              <path class="curve-ghost" data-ghost d="M40 520.0L119 520.0L120 520.2L121 520.5L122 521.0L123 521.5L124 522.0L125 522.7L126 523.3L127 524.0L128 524.8L129 525.6L130 526.4L131 527.2L132 528.1L133 529.0L134 529.9L135 530.9L136 531.8L137 532.8L138 533.8L139 534.8L140 535.9L141 536.9L142 538.0L143 539.1L144 540.1L145 541.2L146 542.3L147 543.4L148 544.5L149 545.6L150 546.7L151 547.9L152 549.0L153 550.1L154 551.2L155 552.3L156 553.4L157 554.5L158 555.6L159 556.7L160 557.8L161 558.8L162 559.9L163 560.9L164 562.0L165 563.0L166 564.0L167 565.0L168 565.9L169 566.9L170 567.8L171 568.7L172 569.5L173 570.4L174 571.2L175 571.9L176 572.7L177 573.3L178 574.0L179 574.5L180 575.0L181 575.5L182 575.8L183 576.0L457 576.0L458 575.8L459 575.5L460 575.0L461 574.5L462 574.0L463 573.3L464 572.7L465 571.9L466 571.2L467 570.4L468 569.5L469 568.7L470 567.8L471 566.9L472 565.9L473 565.0L474 564.0L475 563.0L476 562.0L477 560.9L478 559.9L479 558.8L480 557.8L481 556.7L482 555.6L483 554.5L484 553.4L485 552.3L486 551.2L487 550.1L488 549.0L489 547.9L490 546.7L491 545.6L492 544.5L493 543.4L494 542.3L495 541.2L496 540.1L497 539.1L498 538.0L499 536.9L500 535.9L501 534.8L502 533.8L503 532.8L504 531.8L505 530.9L506 529.9L507 529.0L508 528.1L509 527.2L510 526.4L511 525.6L512 524.8L513 524.0L514 523.3L515 522.7L516 522.0L517 521.5L518 521.0L519 520.5L520 520.2L521 520.0L600 520.0"/>
+              <path class="curve" data-curve clip-path="url(#drawn)" d="M40 520.0L119 520.0L120 520.2L121 520.5L122 521.0L123 521.5L124 522.0L125 522.7L126 523.3L127 524.0L128 524.8L129 525.6L130 526.4L131 527.2L132 528.1L133 529.0L134 529.9L135 530.9L136 531.8L137 532.8L138 533.8L139 534.8L140 535.9L141 536.9L142 538.0L143 539.1L144 540.1L145 541.2L146 542.3L147 543.4L148 544.5L149 545.6L150 546.7L151 547.9L152 549.0L153 550.1L154 551.2L155 552.3L156 553.4L157 554.5L158 555.6L159 556.7L160 557.8L161 558.8L162 559.9L163 560.9L164 562.0L165 563.0L166 564.0L167 565.0L168 565.9L169 566.9L170 567.8L171 568.7L172 569.5L173 570.4L174 571.2L175 571.9L176 572.7L177 573.3L178 574.0L179 574.5L180 575.0L181 575.5L182 575.8L183 576.0L457 576.0L458 575.8L459 575.5L460 575.0L461 574.5L462 574.0L463 573.3L464 572.7L465 571.9L466 571.2L467 570.4L468 569.5L469 568.7L470 567.8L471 566.9L472 565.9L473 565.0L474 564.0L475 563.0L476 562.0L477 560.9L478 559.9L479 558.8L480 557.8L481 556.7L482 555.6L483 554.5L484 553.4L485 552.3L486 551.2L487 550.1L488 549.0L489 547.9L490 546.7L491 545.6L492 544.5L493 543.4L494 542.3L495 541.2L496 540.1L497 539.1L498 538.0L499 536.9L500 535.9L501 534.8L502 533.8L503 532.8L504 531.8L505 530.9L506 529.9L507 529.0L508 528.1L509 527.2L510 526.4L511 525.6L512 524.8L513 524.0L514 523.3L515 522.7L516 522.0L517 521.5L518 521.0L519 520.5L520 520.2L521 520.0L600 520.0"/>
+              <circle class="pen" data-pen cx="40" cy="520" r="4.5"/>
+            </svg>
+            <span class="tick tick-axis" aria-hidden="true">Brightness</span>
+            <span class="tick tick-full" aria-hidden="true">100%</span>
+            <span class="tick tick-floor" aria-hidden="true">97.75%</span>
+          </div>
+          <figcaption>The planet itself is never seen, only the light it blocks. That dip is how 4,688 of the 6,354 planets in ExoExplorer’s built-in archive were found.</figcaption>
+        </figure>
+      </section>
+    </main>
+  </div>
+
+  <section class="wrap section" aria-labelledby="features-title">
+    <div class="section-head">
+      <h2 id="features-title">What you can do with it</h2>
+    </div>
+    <ul class="features">
+      <li class="feature">
+        <h3>Switch between three scales</h3>
+        <div>
+          <p>Planetary systems span five orders of magnitude: TRAPPIST-1’s seven planets all orbit within 0.07 AU of their star, while HR 8799’s outermost is 68 AU out. <strong>Log</strong> spreads any system out so every orbit can be read. <strong>True</strong> shows real proportions, with planets shrunk to specks. <strong>Linear</strong> lays the planets out in a row, with their numbers in a table beside them.</p>
+          <p class="where"><b>Find it</b>Log · True · Linear, below the scene</p>
+        </div>
+      </li>
+      <li class="feature">
+        <h3>See each star’s habitable zone</h3>
+        <div>
+          <p>Conservative and optimistic habitable zones are computed for every star from its temperature and luminosity, following Kopparapu et al. (2014). Where a star lies outside the range that model was built for, its zone is labelled as an extrapolation.</p>
+          <p class="where"><b>Find it</b>Habitable zone, below the scene</p>
+        </div>
+      </li>
+      <li class="feature">
+        <h3>Tap any star or planet for its numbers</h3>
+        <div>
+          <p>Radius, mass, length of year, temperature, how much starlight it receives, and how and when it was found. Every mass says what kind it is: a measurement, an estimate from the planet’s size, or only a lower limit.</p>
+          <p class="where"><b>Find it</b>Tap a star or planet</p>
+        </div>
+      </li>
+      <li class="feature">
+        <h3>Tell measured values from worked-out ones</h3>
+        <div>
+          <p>About 7% of planets have no published orbital distance. ExoExplorer works it out from the orbital period and the star’s mass with Kepler’s third law, and marks it <span class="badge-derived">Orbit derived</span>. A spectral class inferred from a star’s temperature is marked the same way.</p>
+          <p class="where"><b>Find it</b>Settings › Data › Highlight derived values</p>
+        </div>
+      </li>
+      <li class="feature">
+        <h3>Look at the sky from another star</h3>
+        <div>
+          <p>Stand in any system and see the catalogued systems around it in the directions they would appear from there, with our Sun among them.</p>
+          <p class="where"><b>Find it</b>Settings › Display › Night-sky neighbourhood</p>
+        </div>
+      </li>
+      <li class="feature">
+        <h3>Read a short write-up of any world</h3>
+        <div>
+          <p>On devices with Apple Intelligence, summaries are written on your iPhone or iPad from the archive’s values alone, then checked against those values before you see them. Well-known systems have hand-written entries, and every summary says how it was written.</p>
+          <p class="where"><b>Find it</b>Settings › Summaries</p>
+        </div>
+      </li>
+      <li class="feature">
+        <h3>Use it offline</h3>
+        <div>
+          <p>A complete copy of the archive comes with the app, so it opens straight into the data with or without a connection. When you’re online, it downloads the latest version at most once a day.</p>
+          <p class="where"><b>Find it</b>Settings › Archive snapshot</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="wrap section privacy-band" aria-labelledby="privacy-title">
+    <div>
+      <h2 id="privacy-title">One network request</h2>
+      <p>No account, no ads, no analytics and no crash reporting. The only server ExoExplorer contacts is the NASA Exoplanet Archive, to download planet data. Summaries are written on your device and stay there.</p>
+      <p><a class="more" href="/privacy/">Read the privacy policy</a></p>
+    </div>
+    <figure class="request">
+      <pre><code><span class="verb">POST</span> https://exoplanetarchive.ipac.caltech.edu/TAP/sync
+
+query=select pl_name, hostname, … from pscomppars
+&amp;format=csv</code></pre>
+      <figcaption>The whole request. It carries no account, identifier or location, only what any web request carries, such as your IP address.</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap section" aria-label="Details">
+    <dl class="facts">
+      <div>
+        <dt class="mono-label">Runs on</dt>
+        <dd>iPhone and iPad with iOS 15.1 or later</dd>
+      </div>
+      <div>
+        <dt class="mono-label">Summaries</dt>
+        <dd>Generated summaries need Apple Intelligence on iOS 26 or later. Hand-written and data-built summaries work on every device.</dd>
+      </div>
+      <div>
+        <dt class="mono-label">Data</dt>
+        <dd>NASA Exoplanet Archive, Planetary Systems Composite Parameters table</dd>
+      </div>
+      <div>
+        <dt class="mono-label">Made by</dt>
+        <dd>Jonathan Logan</dd>
+      </div>
+    </dl>
+    <p class="ack">ExoExplorer uses data from the <a href="https://exoplanetarchive.ipac.caltech.edu/">NASA Exoplanet Archive</a>, which is operated by the California Institute of Technology, under contract with the National Aeronautics and Space Administration under the Exoplanet Exploration Program.</p>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <a class="brand" href="/" aria-label="ExoExplorer home">
+        <img src="/assets/img/icon-64.png" width="32" height="32" alt="">
+        <span>ExoExplorer</span>
+      </a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Use</a>
+        <a href="mailto:support@exoexplorer.io">support@exoexplorer.io</a>
+      </nav>
+    </div>
+    <div class="wrap">
+      <p class="fine">© 2026 Jonathan Logan. ExoExplorer is an independent app and is not affiliated with or endorsed by NASA, Caltech or IPAC. Apple, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc.</p>
+    </div>
+  </footer>
+</body>
+</html>
