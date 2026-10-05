@@ -336,13 +336,16 @@ a {
 
 /* ------------------------------------------------------------ screenshots */
 
+/* On phones the row scrolls sideways and bleeds to the screen edges, so the next screenshot peeks
+   in from the edge of the screen instead of being cut off at the page margin. */
 .shots {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 70%;
+  grid-auto-columns: 62%;
   gap: clamp(16px, 2.6vw, 36px);
-  margin: 0;
-  padding: 0 0 8px;
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 0 var(--gutter) 8px;
+  scroll-padding-inline: var(--gutter);
   list-style: none;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -356,6 +359,8 @@ a {
 @media (min-width: 760px) {
   .shots {
     grid-auto-columns: minmax(0, 1fr);
+    margin-inline: 0;
+    padding-inline: 0;
     overflow: visible;
   }
 }
